@@ -10,8 +10,8 @@ int getValidChoice() {
         cin >> choice;
 
         if (cin.fail()) {
-           
-            cin.clear();                                                   cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+
+            cin.clear();                                                   cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input. Please enter a number between 1 and 4: ";
         }
         else if (choice < 1 || choice > 4) {
@@ -22,7 +22,44 @@ int getValidChoice() {
         }
     }
 }
+void netflixPlans() {
+    int plan;
 
+    cout << "\nChoose your Netflix plan:\n";
+    cout << "1. Mobile\n";
+    cout << "2. Basic\n";
+    cout << "3. Standard\n";
+    cout << "4. Premium\n";
+    cout << "Enter your choice (1-4): ";
+
+    plan = getValidChoice();
+
+    switch (plan) {
+        case 1:
+            cout << "\nPlan: Mobile\n";
+            cout << "Price: RM 19.90/month\n";
+            cout << "Devices: 1\n";
+            break;
+
+        case 2:
+            cout << "\nPlan: Basic\n";
+            cout << "Price: RM 33.90/month\n";
+            cout << "Devices: 1\n";
+            break;
+
+        case 3:
+            cout << "\nPlan: Standard\n";
+            cout << "Price: RM 55.90/month\n";
+            cout << "Devices: 2\n";
+            break;
+
+        case 4:
+            cout << "\nPlan: Premium\n";
+            cout << "Price: RM 69.90/month\n";
+            cout << "Devices: 4\n";
+            break;
+    }
+}
 void movieRecommender()  {
 int choice;
     cout << "\nChoose a genre:\n";
@@ -54,6 +91,7 @@ int main() {
     char again;
 
     do {
+            netflixPlans();
         movieRecommender();
 
         cout << "\nWould you like another recommendation? (y/n): ";
