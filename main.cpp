@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+void movieRecommender()  {
 int choice;
     cout << "\nChoose a genre:\n";
     cout << "1. Action\n2. Comedy\n3. Drama\n4. Horror\n";
@@ -28,5 +28,18 @@ int choice;
         default:
             cout << "\nInvalid choice. Please try again.\n";
     }
-   return 0;
+}
+int main() {
+    char again;
+
+    do {
+        movieRecommender();
+
+        cout << "\nWould you like another recommendation? (y/n): ";
+        cin >> again;
+
+    } while (again == 'y' || again == 'Y');
+
+    cout << "\nThank you for using Netflix Assistant. Goodbye!\n";
+    return 0;
 }
