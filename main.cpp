@@ -1,13 +1,33 @@
 #include <iostream>
 using namespace std;
 
+
+int getValidChoice() {
+    int choice;
+
+    while (true) {
+        cin >> choice;
+
+        if (cin.fail()) {
+           
+            cin.clear();                                                   cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "Invalid input. Please enter a number between 1 and 4: ";
+        }
+        else if (choice < 1 || choice > 4) {
+            cout << "Invalid choice. Please enter a number between 1 and 4: ";
+        }
+        else {
+            return choice;
+        }
+    }
+}
+
 void movieRecommender()  {
 int choice;
     cout << "\nChoose a genre:\n";
     cout << "1. Action\n2. Comedy\n3. Drama\n4. Horror\n";
     cout << "Enter your choice (1-4): ";
-    cin >> choice; 
-
+ choice = getValidChoice();
     switch (choice) {
         case 1:
             cout << "\nRecommended: 'Extraction'\n";
